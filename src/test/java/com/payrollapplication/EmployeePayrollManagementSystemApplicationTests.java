@@ -8,6 +8,7 @@ class EmployeePayrollManagementSystemApplicationTests {
 
 	@Test
 	void contextLoads() {
+		// Add input validation logic here
 	}
 
 }
