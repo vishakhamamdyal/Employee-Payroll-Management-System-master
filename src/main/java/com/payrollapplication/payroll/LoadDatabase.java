@@ -14,9 +14,13 @@ public class LoadDatabase {
 	@Bean
 	CommandLineRunner initDatabase(EmployeeRepository repository) {
 		return arg -> {
-			log.info("Preloading " + repository.save(new Employee("Bilbo", "Baggins", "burglar")));
-			log.info("Preloading " + repository.save(new Employee("Frodo", "Baggins", "thief")));
-			log.info("Preloading " + repository.save(new Employee("Jido", "Baggins", "conman")));
+			if(repository != null) {
+				log.info("Preloading " + repository.save(new Employee("Bilbo", "Baggins", "burglar")));
+				log.info("Preloading " + repository.save(new Employee("Frodo", "Baggins", "thief")));
+				log.info("Preloading " + repository.save(new Employee("Jido", "Baggins", "conman")));
+			} else {
+				log.error("Repository is null. Cannot preload data.");
+			}
 		};
 	}
 
