@@ -26,7 +26,8 @@ public class EmployeeModelAssembler {
     }
 
     public Object deserializeObject(byte[] serializedObject) {
-        try (ObjectInputStream ois = new ObjectInputStream(new ByteArrayInputStream(serializedObject))) {
+        try {
+            ObjectInputStream ois = new ObjectInputStream(new ByteArrayInputStream(serializedObject));
             return ois.readObject();
         } catch (IOException | ClassNotFoundException e) {
             logger.severe("Deserialization error: " + e.getMessage());
