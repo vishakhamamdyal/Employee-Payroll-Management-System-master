@@ -8,7 +8,7 @@ public class EmployeeNotFoundException extends RuntimeException{
 		if(id == null || id <= 0) {
 			throw new IllegalArgumentException("Invalid employee id");
 		}
-		if(id > Integer.MAX_VALUE) {
+		if(id > Integer.MAX_VALUE || id < 0) {
 			throw new IllegalArgumentException("Employee id exceeds maximum allowed value");
 		}
 		super("Could not find employee: " + id);
